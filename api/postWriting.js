@@ -1,0 +1,30 @@
+const express = require("express");
+const router = express.Router();
+const { client } = require("../db");
+
+router.post("/api/post_writing", async (req, res) => {
+  try {
+    const db = client.db("tblog");
+    let result = await db.collection("counter").findOne({ name: "게시글개수" });
+    result = parseInt(result.total);
+
+    await db.collection("writings").insertOne({
+      id: result + 1,
+      title: req.body.title,
+      author: req.body.author,
+      content: req.body.content,
+      date: req.body.date,
+      auth: req.body.auth,
+    });
+
+    db.collection("counter").updateOne(
+      { name: "게시글개수" },
+      { $inc: { total: 1 } }
+    );
+  } catch (error) {
+    console.error(error);
+    throw new Error(error);
+  }
+});
+
+module.exports = router;
