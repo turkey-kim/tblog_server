@@ -12,6 +12,7 @@ const tokenChecker = require("./api/tokenChecker.js");
 const getAllWritings = require("./api/getAllWritings.js");
 const postWriting = require("./api/postWriting.js");
 const getOneWriting = require("./api/getOneWriting.js");
+const getMyWriting = require("./api/getMyWriting.js");
 const signUp = require("./routes/signUp.js");
 ("");
 
@@ -35,6 +36,7 @@ app.use("/", tokenChecker);
 app.use("/", postWriting);
 app.use("/", getAllWritings);
 app.use("/", getOneWriting);
+app.use("/", getMyWriting);
 app.use("/", signUp);
 
 async function startServer() {
