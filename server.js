@@ -14,6 +14,7 @@ const postWriting = require("./api/postWriting.js");
 const getOneWriting = require("./api/getOneWriting.js");
 const getMyWriting = require("./api/getMyWriting.js");
 const deleteWriting = require("./api/deleteWriting.js");
+const editWriting = require("./api/editWriting.js");
 const signUp = require("./routes/signUp.js");
 ("");
 
@@ -39,6 +40,7 @@ app.use("/", getAllWritings);
 app.use("/", getOneWriting);
 app.use("/", getMyWriting);
 app.use("/", deleteWriting);
+app.use("/", editWriting);
 app.use("/", signUp);
 
 async function startServer() {
