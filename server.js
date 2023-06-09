@@ -15,6 +15,7 @@ const getOneWriting = require("./api/getOneWriting.js");
 const getMyWriting = require("./api/getMyWriting.js");
 const deleteWriting = require("./api/deleteWriting.js");
 const editWriting = require("./api/editWriting.js");
+const uploadFile = require("./api/uploadFile.js");
 const signUp = require("./routes/signUp.js");
 ("");
 
@@ -42,6 +43,7 @@ app.use("/", getMyWriting);
 app.use("/", deleteWriting);
 app.use("/", editWriting);
 app.use("/", signUp);
+app.use("/", uploadFile);
 
 async function startServer() {
   try {
