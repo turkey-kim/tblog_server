@@ -13,8 +13,8 @@ const upload = multer({ storage: storage });
 
 router.post("/api/uploadFile", upload.single("image"), async (req, res) => {
   try {
-    console.log(req.body);
-    res.json({ message: "dd" });
+    console.log(req.file.path);
+    res.json({ imagePath: req.file.path });
   } catch (error) {
     console.error(error);
   }
