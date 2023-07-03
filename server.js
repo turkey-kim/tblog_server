@@ -18,6 +18,10 @@ const deleteWriting = require("./api/deleteWriting.js");
 const editWriting = require("./api/editWriting.js");
 const uploadFile = require("./api/uploadFile.js");
 const signUp = require("./routes/signUp.js");
+const postComment = require("./api/postComment.js");
+const getComments = require("./api/getComments.js");
+const deleteComment = require("./api/deleteComment.js");
+const editComment = require("./api/editComment.js");
 ("");
 
 // 토큰은 로그인 시에만 발급한다. 특히, 페이로드에는 아이디 정보가 들어가기 때문에, 발급 시점은 로그인 시점이다.
@@ -46,6 +50,10 @@ app.use("/", deleteWriting);
 app.use("/", editWriting);
 app.use("/", signUp);
 app.use("/", uploadFile);
+app.use("/", postComment);
+app.use("/", getComments);
+app.use("/", deleteComment);
+app.use("/", editComment);
 
 async function startServer() {
   try {
