@@ -6,7 +6,7 @@ router.post("/api/post_comment", async (req, res) => {
   try {
     const db = client.db("tblog");
     await db.collection("comments").insertOne({
-      id: req.body.id,
+      pageNumber: req.body.pageNumber,
       user: req.body.user,
       content: req.body.content,
       date: req.body.date,
