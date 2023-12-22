@@ -32,7 +32,7 @@ const editRecomment = require("./api/editRecomment.js");
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://tblog-client.vercel.app/"],
     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
     credentials: true,
   })
